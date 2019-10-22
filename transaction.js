@@ -6,6 +6,9 @@ class Transaction {
   }
 
   static deposit(date, amount) {
+    if (amount <= 0) {
+      throw 'Deposit must be greater than 0';
+    }
     return new Transaction(date, amount);
   }
 }
