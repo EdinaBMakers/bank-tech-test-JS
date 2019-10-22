@@ -11,6 +11,10 @@ class Transaction {
     }
     return new Transaction(date, amount);
   }
+
+  static withdrawal(date, amount) {
+    return new Transaction(date, 0, amount);
+  }
 }
 
 module.exports = {Transaction};
