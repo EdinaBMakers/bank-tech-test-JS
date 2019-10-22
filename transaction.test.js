@@ -14,7 +14,7 @@ describe('Transaction', () => {
     expect(transaction.debit).toEqual(0);
   });
 
-  test('it cannot be a negative transaction', () => {
+  test('it cannot be a negative deposit', () => {
     const date = Date.now();
 
     expect(() => { Transaction.deposit(date, -1) })
@@ -37,5 +37,19 @@ describe('Transaction', () => {
     expect(transaction.date).toEqual(date);
     expect(transaction.credit).toEqual(0);
     expect(transaction.debit).toEqual(amount);
+  });
+
+  test('it cannot be a negative withdrawal', () => {
+    const date = Date.now();
+
+    expect(() => { Transaction.withdrawal(date, -1) })
+      .toThrowError('Withdrawal must be greater than 0');
+  });
+
+  test('it cannot be a zero withdrawal', () => {
+    const date = Date.now();
+
+    expect(() => { Transaction.withdrawal(date, 0) })
+      .toThrowError('Withdrawal must be greater than 0');
   });
 });
