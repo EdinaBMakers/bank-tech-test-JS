@@ -40,4 +40,10 @@ describe('Transaction', () => {
       expect(statement.balance).toEqual(576);
     });
   });
+
+  describe('print', () => {
+    test('can display a blank statement', () => {
+      expect(statement.print()).toEqual('date || credit || debit || balanc');
+    });
+  });
 });

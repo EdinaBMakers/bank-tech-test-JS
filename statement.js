@@ -8,6 +8,10 @@ class Statement {
     this.transactions.push(transaction);
     this.balance += (transaction.credit - transaction.debit);
   }
+
+  print() {
+    return 'date || credit || debit || balanc';
+  }
 }
 
 module.exports = { Statement };
